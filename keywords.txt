@@ -1,0 +1,3 @@
+DFRobot_HX711	KEYWORD1
+readWeight	KEYWORD2
+setCalibration	KEYWORD2
