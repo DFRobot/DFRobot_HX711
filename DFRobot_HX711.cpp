@@ -1,3 +1,14 @@
+/*!
+ * @file DFRobot_HX711.cpp
+ * @brief Define the basic structure of class DFRobot_HX711 
+ * @details By a simple mechanical structure with the sensor, that can be read to the mass of the body
+ * @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
+ * @License     The MIT License (MIT)
+ * @author [wuxiao](xiao.wu@dfrobot.com)
+ * @version  V1.0
+ * @date  2020-05-14
+ * @url https://github.com/DFRobot/DFRobot_HX711
+ */
 #include "DFRobot_HX711.h"
 
 DFRobot_HX711::DFRobot_HX711(uint8_t DoutPin, uint8_t SckPin) :

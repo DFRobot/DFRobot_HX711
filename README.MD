@@ -1,13 +1,14 @@
-# HX711-Arduino
+# DFRobot_HX711
+- [中文版](./README_CN.md)
+
 HX711 is a 24-bit A / D converter chip designed for high-precision electronic scales.<br>
 This example is suitable for HX711 sensor and read data through Arduino.<br>
 
 
-## DFRobot_HX711 Library for Arduino
----------------------------------------------------------
+![Product Image](./resources/images/SEN0160.jpg)
 
-Provide an Arduino library to get weight by reading data from HX711.
-
+## Product Link (https://www.dfrobot.com/product-1031.html)
+    SEN0160: Gravity: Digital Weight Sensor
 ## Table of Contents
 
 * [Summary](#summary)
@@ -29,18 +30,51 @@ To use this library, first download the library file, paste it into the \Arduino
 
 ```C++
 
-#include <DFRobot_HX711.h>
 
-/*
- * @brief Read weight.
- * @return The currently obtained weight in grams (g).
- */
-float readWeight();
+    /*!
+     * @fn DFRobot_HX711
+     * @brief Constructor 
+     * @param pin_din  Analog data pins
+     * @param pin_slk  Analog data pins
+     */
+    DFRobot_HX711(uint8_t pin_din, uint8_t pin_slk);
+    ~DFRobot_HX711();
+	
+    /*!
+     * @fn getValue
+     * @brief Get the weight of the object
+     * @return return the read weight value, unit: g
+     */
+    long getValue();
+	
+    /*!
+     * @fn averageValue
+     * @brief Get the average of multiple measurements
+     * @param times Take the average several times
+     * @return return the read weight value, unit: g
+     */
+    long averageValue(byte times = 25);
 
-/*
- * @brief Set the calibration base value. The default value is 1992.
- */
-void setCalibration(float base = 1992.f);
+    /*!
+     * @fn setOffset
+     * @brief peel
+     * @param offset skin value
+     */
+    void setOffset(long offset);
+	
+    /*!
+     * @fn setCalibration
+     * @brief set calibration value
+     * @param base calibration value
+     */
+    void setCalibration(float base = 1992.f);
+
+    /*!
+     * @fn readWeight
+     * @brief Get the weight of the object after peel
+     * @return return the read weight value, unit: g
+     */
+	float readWeight();
 
 
 ```
@@ -50,15 +84,16 @@ void setCalibration(float base = 1992.f);
 MCU                | Work Well    | Work Wrong   | Untested    | Remarks
 ------------------ | :----------: | :----------: | :---------: | -----
 Arduino uno        |      √       |              |             | 
-Mega2560        |      √       |              |             | 
+FireBeetle-ESP8266        |      √       |              |             | 
+FireBeetle-ESP32        |      √       |              |             | 
+mpython        |      √       |              |             | 
+microbit        |      √       |              |             | 
 
 
 ## History
 
-- data 2019-12-02
-- version V0.1
-
+- 2019/12/02 - Version 1.0.0 released.
 
 ## Credits
 
-Written by(xiao.wu@dfrobot.com), 2019. (Welcome to our [website](https://www.dfrobot.com/))
+Written by wuxiao(xiao.wu@dfrobot.com), 2019. (Welcome to our [website](https://www.dfrobot.com/))
